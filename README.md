@@ -22,3 +22,4 @@ admin123
 ```
 
 # imagenes
+![fotos](img/fotos.png)
