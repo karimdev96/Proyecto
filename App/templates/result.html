@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesor</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">
+            Django
+        </label>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Home</a></li>
+            <li><a href="{% url 'familia' %}">Familia</a></li>
+            <li><a href="{% url 'trabajo' %}">Trabajos</a></li>
+            <li><a class="active" href="{% url 'profesion' %}">Profesor</a></li>  
+            <li><a href="{% url 'search' %}">buscador</a></li>  
+
+        </ul>
+    </nav>
+    <div class="container-box">
+        <div class="mv-box">
+            {% if fm %}
+            <ul>
+                {% for p in fm %}
+                <li>{{p.nombre}}</li>  
+                <li>{{p.apellido}}</li>  
+                <li>{{p.FechaDeNacimiento}}</li>  
+                <li>{{p.dni}}</li>  
+                <li>{{p.edad}}</li>  
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p style="color: white;">No hay datos con ese descripcion</p>
+            {% endif %}
+            <button>
+                <a href="{% url 'search' %}">regreso</a>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

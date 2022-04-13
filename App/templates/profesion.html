@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesor</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">
+            Django
+        </label>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Home</a></li>
+            <li><a href="{% url 'familia' %}">Familia</a></li>
+            <li><a href="{% url 'trabajo' %}">Trabajos</a></li>
+            <li><a class="active" href="{% url 'profesion' %}">Profesor</a></li>  
+            <li><a href="{% url 'search' %}">buscador</a></li>  
+
+        </ul>
+    </nav>
+    <div class="container-box">
+        {% if fm2.errors %}
+        <p style="color: brown;">Estan mal los datos por favor revisa</p>
+        {% endif %}
+        <form class="fm" method="POST">{% csrf_token %}
+            <table>
+                <h2>Profesor formulario</h2>
+                <p>Nombre</p>
+                {{fm2.nombre_form}}
+                <p>Apellidos</p>
+                {{fm2.apellido_form}}
+                <p>Email</p>
+                {{fm2.email_form}}
+                <p>Dni</p>
+                {{fm2.dni_form}}
+                <p>Telefono</p>
+                {{fm2.telefono_form}}
+                <p>Profesion</p>
+                {{fm2.profesion_form}}
+            </table>
+            <input class="env" type="submit" value="agregar">
+        </form>
+
+        <div class="mv-box">
+            {% for p in vista %}
+                <li>{{p}}</li>  
+                <button>
+                    <a href="{% url 'del' p.nombre_master %}" >eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'edit2' p.nombre_master %}" >editar</a>
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

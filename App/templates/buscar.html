@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesor</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">
+            Django
+        </label>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Home</a></li>
+            <li><a href="{% url 'familia' %}">Familia</a></li>
+            <li><a href="{% url 'trabajo' %}">Trabajos</a></li>
+            <li><a href="{% url 'profesion' %}">Profesor</a></li>  
+            <li><a class="active"  href="{% url 'search' %}">buscador</a></li>  
+
+        </ul>
+    </nav>
+    <div class="container-box">
+        <form class="fm" action="{% url 'result' %}" method="GET">
+            <h2>Buscador</h2>
+            <input  type="text" name="nombre">
+
+            <input class="env" type="submit" value="buscar">
+        </form>
+    </div>
+</body>
+</html>

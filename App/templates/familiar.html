@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">
+            Django
+        </label>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Home</a></li>
+            <li><a class="active" href="{% url 'familia' %}">Familia</a></li>
+            <li><a href="{% url 'trabajo' %}">Trabajos</a></li>
+            <li><a href="{% url 'profesion' %}">Profesor</a></li>  
+            <li><a href="{% url 'search' %}">buscador</a></li>  
+
+        </ul>
+    </nav>
+    <div class="container-box">
+        <form class="fm" method="POST">{% csrf_token %}
+            <table>
+                <h2>Familia formulario</h2>
+                <p>Nombre</p>
+                {{families.nombre}}
+                <p>Apellidos</p>
+                {{families.apellido}}
+                <p>Fecha De Naciemiento</p>
+                {{families.FechaDeNacimiento}}
+                <p>Dni</p>
+                {{families.dni}}
+                <p>edad</p>
+                {{families.edad}}
+            </table>
+            <input class="env" type="submit" value="agregar">
+        </form>
+        <div class="mv-box">
+            {% for p in vista %}
+                <li>{{p}}</li>  
+                <button>
+                    <a href="{% url 'del3' p.nombre %}" >eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'edit3' p.nombre %}" >editar</a>
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

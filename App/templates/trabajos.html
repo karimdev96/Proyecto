@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajos</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">
+            Django
+        </label>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Home</a></li>
+            <li><a href="{% url 'familia' %}">Familia</a></li>
+            <li><a class="active" href="{% url 'trabajo' %}">Trabajos</a></li>
+            <li><a href="{% url 'profesion' %}">Profesor</a></li>  
+            <li><a href="{% url 'search' %}">buscador</a></li>  
+
+        </ul>
+    </nav>
+    <div class="container-box">
+        {% if fm2.errors %}
+        <p style="color: brown;">Estan mal los datos por favor revisa</p>
+        {% endif %}
+        <form class="fm" method="POST">{% csrf_token %}
+            <table>
+                <h2>Trabajos formulario</h2>
+                <p>Nombre</p>
+                {{jobs.nombre_form}}
+                <p>Apellidos</p>
+                {{jobs.apellido_form}}
+                <p>Email</p>
+                {{jobs.email_form}}
+                <p>Dni</p>
+                {{jobs.dni_form}}
+                <p>Telefono</p>
+                {{jobs.telefono_form}}
+                <p>Profesion</p>
+                {{jobs.profesion_form}}
+            </table>
+            <input class="env" type="submit" value="agregar">
+        </form>
+        <div class="mv-box">
+            {% for p in vista %}
+                <li>{{p}}</li>  
+                <button>
+                    <a href="{% url 'del2' p.nombre_empresa %}" >eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'edit2' p.nombre_empresa %}" >editar</a>
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

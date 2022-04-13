@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">
+            Django
+        </label>
+        <ul>
+            <li><a class="active" href="{% url 'inicio' %}">Home</a></li>
+            <li><a href="{% url 'familia' %}">Familia</a></li>
+            <li><a href="{% url 'trabajo' %}">Trabajos</a></li>
+            <li><a href="{% url 'profesion' %}">Profesor</a></li>  
+            <li><a href="{% url 'search' %}">buscador</a></li>  
+        </ul>
+    </nav>
+    <p class="ff-c">Karim jaimes</p>
+    <p class="ff-c" style="font-size: 40px;">Escrito por django y python</p>
+</body>
+</html>
