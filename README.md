@@ -34,6 +34,7 @@ http://localhost:8000/
 # Listas de tarea
 - [x] Agregar formulario
 - [x] Eliminar formulario
+- [x] Buscador formulario
 - [ ] Editar formulario
 - [ ] Modificar formulario 
 - [ ] Login
