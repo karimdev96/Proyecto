@@ -23,6 +23,10 @@ login bd
 admin
 admin123
 ```
+link para entrar pagina web
+```bash
+http://localhost:8000/
+```
 
 # imagenes
 ![fotos](img/fotos.png)
