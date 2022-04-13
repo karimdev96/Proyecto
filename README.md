@@ -30,3 +30,11 @@ http://localhost:8000/
 
 # imagenes
 ![fotos](img/fotos.png)
+
+# Listas de tarea
+- [x] Agregar formulario
+- [x] Eliminar formulario
+- [ ] Editar formulario
+- [ ] Modificar formulario 
+- [ ] Login
+- [ ] Register
